@@ -12,22 +12,21 @@
 <body>
     <div class="container box">
         <h1 align="center">Lista de Clientes</h1>
-        <br>
         <div>
             <div align="left">
-                <button id="btn_agregar" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#c_agregar">
-                    Agregar Cliente
-                </button>
-                <button id="btn_modificar" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#c_modificar">
+                <button type="button" id="btn_agregar" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#m_agregar">
+					Agregar Persona
+				</button>
+                <button id="btn_modificar" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#m_modificar">
                     Modificar Cliente
                 </button>
-                <button id="btn_eliminar" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#c_eliminar">
+                <button id="btn_eliminar" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#m_eliminar">
                     Eliminar Cliente
                 </button>
             </div>
             <br>
-            <?php
-                include("../model/listar.php")
+            <?php 
+                include ("../model/listar.php");
             ?>
         </div>
     </div>
@@ -35,41 +34,41 @@
 </html>
 
 <!--    Modal AGREGAR   -->
-<div class="modal fade" id="c_agregar" tabindex="-1" aria-labelledby="titleA">
+<div class="modal fade" id="m_agregar" tabindex="-1" aria-labelledby="titleA">
     <div class="modal-dialog">
         <form method="POST" id="frmAgregar">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="titleA">Agregar Cliente</h5>
-                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="txtCi">Cédula</label>
+                    <label>Cédula</label>
                     <input type="number" name="txtCi" id="txtCi" class="form-control">
                     <br>
 
-                    <label for="txtNom">Nombre</label>
+                    <label>Nombre</label>
                     <input type="text" name="txtNom" id="txtNom" class="form-control">
                     <br>
 
-                    <label for="txtApe">Apellido</label>
+                    <label>Apellido</label>
                     <input type="text" name="txtApe" id="txtApe" class="form-control">
                     <br>
 
-                    <label for="txtDir">Dirección</label>
+                    <label>Dirección</label>
                     <input type="text" name="txtDir" id="txtDir" class="form-control">
                     <br>
 
-                    <label for="txtTel">Teléfono</label>
+                    <label>Teléfono</label>
                     <input type="tel" name="txtTel" id="txtTel" class="form-control">
                     <br>
 
-                    <label for="txtMail">E-Mail</label>
+                    <label>E-Mail</label>
                     <input type="email" name="txtMail" id="txtMail" class="form-control">
                     <br>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" name="accion" id="a_accion" value="Agregar" class="btn btn-outline-success">
+                    <input type="submit" name="agregar" id="agregar" value="Agregar" class="btn btn-outline-success">
                 </div>
             </div>
         </form>
@@ -77,7 +76,7 @@
 </div>
 
 <!--    Modal MODIFICAR   -->
-<div class="modal fade" id="c_modificar" tabindex="-1" aria-labelledby="titleM">
+<div class="modal fade" id="m_modificar" tabindex="-1" aria-labelledby="titleM">
     <div class="modal-dialog">
         <form method="POST" id="frmModificar">
             <div class="modal-content">
@@ -86,12 +85,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="txtCi">Cédula</label>
+                    <label >Cédula</label>
                     <input type="number" name="txtCi" id="txtCi" class="form-control">
                     <br>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" name="accion" id="m_accion" value="Modificar" class="btn btn-outline-primary">
+                    <input type="submit" name="modificar" id="modificar" value="Modificar" class="btn btn-outline-primary">
                 </div>
             </div>
         </form>
@@ -99,7 +98,7 @@
 </div>
 
 <!--    Modal ELIMINAR   -->
-<div class="modal fade" id="c_eliminar" tabindex="-1" aria-labelledby="titleE">
+<div class="modal fade" id="m_eliminar" tabindex="-1" aria-labelledby="titleE">
     <div class="modal-dialog">
         <form method="POST" id="frmEliminar">
             <div class="modal-content">
@@ -108,19 +107,22 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="txtCi">Cédula</label>
+                    <label >Cédula</label>
                     <input type="number" name="txtCi" id="txtCi" class="form-control">
                     <br>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" name="accion" id="e_accion" value="Eliminar" class="btn btn-outline-danger">
+                    <input type="submit" name="eliminar" id="eliminar" value="Eliminar" class="btn btn-outline-danger">
                 </div>
             </div>
         </form>
     </div>
 </div>
 
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.3.1/jszip-2.5.0/dt-1.10.25/b-1.7.1/b-html5-1.7.1/b-print-1.7.1/date-1.1.1/kt-2.6.2/r-2.2.9/sl-1.3.3/datatables.min.js"></script>
+
+<script type="text/javascript" src="app.js" language="javascript"></script>
