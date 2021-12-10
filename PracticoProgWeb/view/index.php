@@ -169,12 +169,10 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="titleC">¿Está seguro de eliminar a este Cliente?</h5>
             </div>
-            <center>
-                <div class="modal-body">
-                    <button name="aceptar" id="aceptar" class="btn btn-outline-danger">Aceptar</button> 
-                    <button name="cancelar" id="cancelar" class="btn btn-outline-secondary">Cancelar</button> 
-                </div>
-            </center>
+            <div class="modal-body" align="center">
+                <button name="aceptar" id="aceptar" class="btn btn-outline-danger">Aceptar</button> 
+                <button name="cancelar" id="cancelar" class="btn btn-outline-secondary">Cancelar</button> 
+            </div>
         </div>
     </div>
 </div>
