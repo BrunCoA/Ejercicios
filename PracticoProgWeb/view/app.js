@@ -1,6 +1,7 @@
 
 $(function () {
     $('#buscar_m').on('click', onClickBotonBuscar);
+    $('#cancelar').on('click', onClickBotonCancelar);
 
     $(this).on('submit', '#frmAgregar', function (event) {
         event.preventDefault();
@@ -24,6 +25,7 @@ $(function () {
             success: function (data) {
                 $('#frmAgregar')[0].reset();
                 $('#m_agregar').modal('hide');
+                location.reload();
             },
             error: function (data) {
                 console.log('Error:', data);
@@ -56,6 +58,7 @@ $(function () {
                 $('#frmModificar')[0].reset();
                 $('#frmBuscar_m')[0].reset();
                 $('#m_modificar').modal('hide');
+                location.reload();
             },
             error: function (data) {
                 console.log('Error:', data);
@@ -63,8 +66,14 @@ $(function () {
         });
     })
     
+        
+    
     $(this).on('submit', '#frmEliminar', function (event) {
         event.preventDefault();
+        $('#m_eliminar').modal('hide');
+    })
+
+    $(this).on('click', '#aceptar', function (event) {
         var cedula = $('#etxtCi').val();
         $.ajax({
             url: "../model/eliminar.php",
@@ -74,15 +83,22 @@ $(function () {
             }, 
             success: function (data) {
                 $('#frmEliminar')[0].reset();
-                $('#m_eliminar').modal('hide');
+                $('#m_confirmar').modal('hide');
+                location.reload();
             },
             error: function (data) {
                 console.log('Error:', data);
             }
         });
-    })
+    });
 });
 
 function onClickBotonBuscar(){
     $('#m_bModificar').modal('hide');
+    var bcedula = $('#b_txtCi').val();
+    $('#mtxtCi').setAttribute('value', 'bcedula');
+}
+
+function onClickBotonCancelar(){
+    $('#m_confirmar').modal('hide');
 }
