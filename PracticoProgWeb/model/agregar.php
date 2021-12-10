@@ -12,8 +12,6 @@
         $insert->bindParam(5, $_POST["p_telefono"], PDO::PARAM_STR, 16);
         $insert->bindParam(6, $_POST["p_mail"], PDO::PARAM_STR, 128);
         $insert->execute();
-        $idInsert = $con->lastInsertId();
-        return $idInsert;
     } catch (PDOException $e) {
         throw new Exception($e->getMessage());
     }

@@ -16,8 +16,6 @@
 
       } catch (PDOException $e) {
          throw new Exception('Falló la conexión con la DB: ' . $e->getMessage());
-         // echo 'Ha surgido un error y no se puede conectar a la base de datos. Detalle: ' . $e->getMessage();
-         // exit;
       }
    }
    }
